@@ -1,7 +1,7 @@
 let inputdirection = { x: 0, y: 0 };
-const movesound = new Audio("move.mp3");
+const movesound = new Audio("move.wav");
 const foodsound = new Audio("eat.mp3");
-const gameoversound = new Audio("gameover.mp3");
+const gameoversound = new Audio("gameover.wav");
 const musicsound = new Audio("music.mp3");
 let speed = 4;
 let lastpainttime = 0;
