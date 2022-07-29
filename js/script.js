@@ -4,7 +4,7 @@ const movesound = new Audio("move.wav");
 const foodsound = new Audio("eat.mp3");
 const gameoversound = new Audio("gameover.wav");
 const musicsound = new Audio("music.mp3");
-let speed =10;
+let speed = 5;
 let lastpainttime = 0;
 let snakeArray = [{ x: 13, y: 15 }];
 let poisionfood1 = { x: 10, y: 12 };
@@ -14,6 +14,14 @@ let poisionfood4 = { x: 5, y: 14 };
 let poisionfood5 = { x: 2, y: 12 };
 let food = { x: 10, y: 10 };
 let score = 0;
+
+const name1 = prompt('write your name')
+document.getElementById('result').innerHTML = "Name: " + name1;
+// document.getElementById('result').max;
+if (name1.length > 10) {
+  alert("pls write your name in under 10 words reload to write your name")
+  document.getElementById('result').style.display = 'none';
+}
 //game functions
 
 function main(ctime) {
@@ -68,6 +76,7 @@ if(iscollide(snakeArray)){
 //if snake eaten the food add score and regenerate the food
 if(snakeArray[0].y === food.y && snakeArray[0].x === food.x){
     foodsound.play();
+  speed += 0.5;
     score += 1;
     if(score>hiscore){
       hiscore = score;
@@ -77,10 +86,10 @@ if(snakeArray[0].y === food.y && snakeArray[0].x === food.x){
     
     scorenum.innerHTML = "Score: " + score;
 snakeArray.unshift({x: snakeArray[0].x + inputdirection.x, y: snakeArray[0].y + inputdirection.y})
-let a = 1;
-let b = 17;
-let c = 1;
-let d = 17;
+ a = 1;
+ b = 17;
+ c = 1;
+d = 17;
 food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
 poisionfood1 = {x: Math.round(c + (d-c)* Math.random()), y: Math.round(c + (d-c)* Math.random())}
 poisionfood2 = {x: Math.round(c + (d-c)* Math.random()), y: Math.round(c + (d-c)* Math.random())}
@@ -89,6 +98,33 @@ poisionfood3 = {x: Math.round(c + (d-c)* Math.random()), y: Math.round(c + (d-c)
  poisionfood4 = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
 poisionfood5 = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
 }
+  
+  if(poisionfood1.y === food.y && poisionfood1.x === food.x){
+  a = 1
+  b = 17
+  food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+}
+if(poisionfood2.y === food.y && poisionfood2.x === food.x){
+  a = 1
+  b = 17
+  food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+}
+if(poisionfood3.y === food.y && poisionfood3.x === food.x){
+  a = 1
+  b = 17
+  food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+}
+if(poisionfood4.y === food.y && poisionfood4.x === food.x){
+  a = 1
+  b = 17
+  food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+}
+if(poisionfood5.y === food.y && poisionfood5.x === food.x){
+  a = 1
+  b = 17
+  food = {x: Math.round(a + (b-a)* Math.random()), y: Math.round(a + (b-a)* Math.random())}
+}
+
 
 //moving snake
 for (let i = snakeArray.length - 2; i>=0; i--) {
