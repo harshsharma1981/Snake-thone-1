@@ -1,7 +1,7 @@
 let inputdirection = { x: 0, y: 0 };
-const movesound = new Audio("move.wav");
+const movesound = new Audio("move.mp3");
 const foodsound = new Audio("eat.mp3");
-const gameoversound = new Audio("gameover.wav");
+const gameoversound = new Audio("gameover.mp3");
 const musicsound = new Audio("music.mp3");
 let speed = 4;
 let lastpainttime = 0;
@@ -91,7 +91,24 @@ if(iscollide(snakeArray)){
     speed = 5
   
 
+    if (power >= 8) {
+      // confirm("use your energy point to continue or cancel to start")
+     
+      if (confirm("use your energy point to continue or cancel to start") == true ) {
+        power -= 8;
+        return false
+      }  else{
+        score = 0
+        return true;
+        
+      }
+      
    
+    }
+
+    if (power >= 12){
+      power -= 12;
+    }
    
     // musicsound.play();
     // musicsound.volume = 0.3;
@@ -128,6 +145,7 @@ if(snakeArray[0].y === food.y && snakeArray[0].x === food.x){
       foodsound.volume = 0.3
       speed += 1;
     }
+    numpower.innerHTML = "<img src=\'frog-food.png\' width=\'44px\' height=\'40px\' position=\absolute\ right=\52px\>  " + power
     scorenum.innerHTML = "Score: " + score;
 snakeArray.unshift({x: snakeArray[0].x + inputdirection.x, y: snakeArray[0].y + inputdirection.y})
  a = 2;
@@ -239,6 +257,16 @@ poisionfood5Element.classList.add('poisionfood5');
   display.appendChild(poisionfood5Element);
 
 
+  // // display snake charmer
+  // snakecharmerElement = document.createElement('div')
+  // snakecharmerElement.style.gridRowStart = snakecharmer.y;
+  // snakecharmerElement.style.gridColumnStart = snakecharmer.x;
+  // snakecharmerElement.classList.add("charmer")
+  // display.appendChild(snakecharmerElement);
+
+}
+
+
 
 
 //main logic
@@ -326,5 +354,4 @@ function moveright() {
   movesound.volume = 0.3;
   inputdirection.x = 1;
   inputdirection.y = 0;
-}
 }
