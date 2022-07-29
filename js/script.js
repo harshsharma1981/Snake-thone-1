@@ -72,6 +72,7 @@ if(iscollide(snakeArray)){
     snakeArray = [{ x: 13, y: 15 }];
     musicsound.play();
     score = 0;
+  speed = 5;
 }
 //if snake eaten the food add score and regenerate the food
 if(snakeArray[0].y === food.y && snakeArray[0].x === food.x){
