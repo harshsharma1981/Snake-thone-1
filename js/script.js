@@ -89,26 +89,6 @@ if(iscollide(snakeArray)){
     alert('Game Over. press any key to continue');
   snakeArray = [{ x: 13, y: 17 }];
     speed = 5
-  
-
-    if (power >= 8) {
-      // confirm("use your energy point to continue or cancel to start")
-     
-      if (confirm("use your energy point to continue or cancel to start") == true ) {
-        power -= 8;
-        return false
-      }  else{
-        score = 0
-        return true;
-        
-      }
-      
-   
-    }
-
-    if (power >= 12){
-      power -= 12;
-    }
    
     // musicsound.play();
     // musicsound.volume = 0.3;
@@ -145,7 +125,7 @@ if(snakeArray[0].y === food.y && snakeArray[0].x === food.x){
       foodsound.volume = 0.3
       speed += 1;
     }
-    numpower.innerHTML = "<img src=\'frog-food.png\' width=\'44px\' height=\'40px\' position=\absolute\ right=\52px\>  " + power
+    
     scorenum.innerHTML = "Score: " + score;
 snakeArray.unshift({x: snakeArray[0].x + inputdirection.x, y: snakeArray[0].y + inputdirection.y})
  a = 2;
