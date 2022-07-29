@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=PT+Serif&family=Press+Start+2P&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'PT Serif', serif;
+}
+
+.body{
+   background: url('../bg3.jpeg');
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+ display: flex;
+ 
+ 
+ 
+ 
+}
+
+#display{
+    position: absolute;
+    top: 10px;
+   left: 30px;
+background:linear-gradient(to right, rgb(171 189 157) , rgb(84 137 142));
+border-radius: 20px;
+width: 90vmin;
+height: 92vmin;
+border: 5px solid #274022;
+display: grid;
+grid-template-rows: repeat(18, 1fr);
+grid-template-columns: repeat(18, 1fr);
+
+}
+
+.head{
+   
+background: linear-gradient(green , rgb(7, 7, 7));
+border-radius: 9px;
+border: 2px solid black;
+transform: scale(1.02);
+
+
+}
+.snake{
+    background: linear-gradient(green, rgba(253, 253, 2, 0.738));
+    border: 2px solid black;
+    border-radius: 11px;
+}
+
+.food{
+    background:linear-gradient(rgb(252, 20, 20), rgb(199, 199, 121));
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+
+ #scorenum{
+   
+    position: absolute;
+    right: 40px;
+    top: 9px;
+    font-size: 30px;
+    font-family: 'Arima', cursive;
+    font-weight: bold;
+} 
+#highscorebox{
+    
+    position: absolute;
+    right: 40px;
+    top: 55px;
+    font-size: 30px;
+    font-family: 'Arima', cursive;
+    font-weight: bold;
+}
+.inc{
+    position: absolute;
+    right: 43vh;
+    top: 144px;
+    font-size: 40px;
+    font-family: 'Press Start 2P', cursive;
+    color: rgb(0, 0, 0);
+}
+.snaketext{
+    position: absolute;
+    right: 19vh;
+    top: 200px;
+    font-size:45px;
+    font-family: 'Press Start 2P', cursive;
+    color: rgb(0, 0, 0);
+}
+
+.poisionfood1{
+   
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 20px;
+    border: 10px solid black;
+}
+.poisionfood2{
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 20px;
+    border: 10px solid black;
+}
+   
+.poisionfood3{
+    
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 20px;
+    border: 10px solid black;
+}
+/* poision food you can uncomment this if required */
+.poisionfood4{
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 20px;
+    border: 10px solid black;
+}
+.poisionfood5{
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 20px;
+    border: 10px solid black;
+}
+
+/* buttons */
+.clickscreen{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsiveness */
+
+ @media only screen and (max-width: 600px) {
+#display{
+    top: 21vh;
+    left: 5vh;
+    width: 80vmin;
+height: 84vmin;
+}
+/* //snake and food */
+ .snake{
+    background: linear-gradient(green, rgba(253, 253, 2, 0.738));
+    border: 0.2vh solid black;
+    border-radius: 1.5vh;
+}
+.head{
+   
+    background: linear-gradient(green , rgb(7, 7, 7));
+    border-radius: 0.5vh;
+    border: 0.2vh solid black;
+    transform: scale(1.02);
+    
+    
+    }
+.food{
+    background:linear-gradient(rgb(252, 20, 20), rgb(199, 199, 121));
+    border-radius:100%;
+    border: 0.2vh solid black;
+} 
+.icon img{
+    display: none;
+}
+/* poisionfood */
+.poisionfood1{
+   
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 2.9vh;
+    border: 0.8vh solid black;
+}
+.poisionfood2{
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 2.9vh;
+    border: 0.8vh solid black;
+}
+   
+.poisionfood3{
+    
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 2.9vh;
+    border: 0.8vh solid black;
+} 
+/* poision food you can uncomment this if required */
+.poisionfood4{
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 2.9vh;
+    border: 0.8vh solid black;
+}
+.poisionfood5{
+    background:linear-gradient(rgb(85, 255, 0), );
+    border-radius: 2.9vh;
+    border: 0.8vh solid black;
+}
+
+.clickscreen{
+    
+    position: absolute;
+    bottom: 5vh;
+    display:flex;
+    margin: -6vh 6vh;
+}
+.clickscreen button{
+    padding: 2vh;
+}
+.moveup{
+    color: black;
+    position: absolute;
+    left: 17vh;
+    bottom: 14vh;
+    font-size: 3vh;
+    border: 0.4vh solid black;
+    border-radius: 3vh;
+   
+    background-color: gold;
+}
+
+.moveup i{
+    padding: 0.1vh 2vh;
+}
+}
+.movedown{
+    color: black;
+    position: absolute;
+    left: 17vh;
+    bottom: 5vh;
+    font-size: 3vh;
+    border: 0.4vh solid black;
+    border-radius: 3vh;
+   
+    background-color: gold;
+}
+.movedown i{
+    padding: 0.1vh 2vh;
+}
+.moveleft{
+    color: black;
+    position: absolute;
+    left: 6vh;
+    bottom: 5vh;
+    font-size: 3vh;
+    border: 0.4vh solid black;
+    border-radius: 3vh;
+   
+    background-color: gold;
+}
+.moveleft i{
+    padding: 0.1vh 2vh;
+}
+.moveright{
+    color: black;
+    position: absolute;
+    left: 28vh;
+    bottom: 5vh;
+    font-size: 3vh;
+    border: 0.4vh solid black;
+    border-radius: 3vh;
+   
+    background-color: gold;
+}
+.moveright i{
+    padding: 0.1vh 2vh;
+}
+
+  /* @media only screen and (min-width: 720px) {
+#display{
+    width: 80vmin;
+    height: 92vmin;
+    left: 5vh;
+    top: 25vh;
+}
+ /*snake and food */
+ /* .snake{
+    background: linear-gradient(green, rgba(253, 253, 2, 0.738));
+    border: 2px solid black;
+    border-radius: 1.5vh;
+}
+
+.food{
+    background:linear-gradient(rgb(252, 20, 20), rgb(199, 199, 121));
+    border-radius: 2.9vh;
+    border: 2px solid black;
+}
+    /* poisionfood */
+     /* .poisionfood1{
+   
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh; */ 
+        /* border: 10px solid black;
+    }
+    .poisionfood2{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 10px solid black;
+    }
+       
+    .poisionfood3{
+        
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 10px solid black;
+    } */
+    /* poision food you can uncomment this if required */
+      /* .poisionfood4{ 
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 10px solid black;
+    }
+    .poisionfood5{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 10px solid black;
+    }
+ } */
+
+ @media only screen and (min-width: 600px){
+    #display{
+        top: 8vh;
+        left: 5vh;
+        width: 80vmin;
+    height: 84vmin;
+    }
+    .inc{
+        position: absolute;
+        right: 24vh;
+        top: 144px;
+        font-size: 40px;
+        font-family: 'Press Start 2P', cursive;
+        color: rgb(0, 0, 0);
+    }
+    .snaketext{
+        position: absolute;
+        right: 14vh;
+        top: 200px;
+        font-size:45px;
+        font-family: 'Press Start 2P', cursive;
+        color: rgb(0, 0, 0);
+    }
+    .icon img{
+        
+            height: 48vh;
+            width: 48vh;
+            position: absolute;
+            right: 21vh;
+            top: 59vh;
+            
+            color: green;
+            filter: grayscale(100%);
+        
+    }
+    
+    
+    
+   
+  
+    .snake{
+        background: linear-gradient(green, rgba(253, 253, 2, 0.738));
+        border: 0.2vh solid black;
+        border-radius: 1.5vh;
+    }
+    .head{
+       
+        background: linear-gradient(green , rgb(7, 7, 7));
+        border-radius: 0.8vh;
+        border: 0.4vh solid black;
+        transform: scale(1.02);
+        
+        
+        }
+    .food{
+        background:linear-gradient(rgb(252, 20, 20), rgb(199, 199, 121));
+        border-radius:100%;
+        border: 0.2vh solid black;
+    } 
+    /* poisionfood */
+    .poisionfood1{
+       
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+    .poisionfood2{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+       
+    .poisionfood3{
+        
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    } 
+    /* poision food you can uncomment this if required */
+    .poisionfood4{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+    .poisionfood5{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+    
+}
+
+ @media only screen and (min-width: 700px){
+    #display{
+        top: 8vh;
+        left: 5vh;
+        width: 80vmin;
+    height: 84vmin;
+    }
+    .inc{
+        position: absolute;
+        right: 24vh;
+        top: 144px;
+        font-size: 40px;
+        font-family: 'Press Start 2P', cursive;
+        color: rgb(0, 0, 0);
+    }
+    .snaketext{
+        position: absolute;
+        right: 19vh;
+        top: 200px;
+        font-size:45px;
+        font-family: 'Press Start 2P', cursive;
+        color: rgb(0, 0, 0);
+    }
+    .inctext{
+        position: absolute;
+        right: 18vh;
+    }
+    .icon img{
+        
+        position: absolute;
+        right: 13vh;
+   top: 30vh;
+   color: green;
+   filter: grayscale(100%);
+    }
+    
+    
+   
+  
+    .snake{
+        background: linear-gradient(green, rgba(253, 253, 2, 0.738));
+        border: 0.2vh solid black;
+        border-radius: 1.5vh;
+        border-top-left-radius:2vh ;
+        border-top-right-radius:2vh;
+
+    }
+    .head{
+       
+        background: linear-gradient(green , rgb(7, 7, 7));
+        border-radius: 1vh;
+        border: 0.4vh solid black;
+        transform: scale(1.02);
+        
+        
+        }
+    .food{
+        background:linear-gradient(rgb(252, 20, 20), rgb(199, 199, 121));
+        border-radius:100%;
+        border: 0.2vh solid black;
+    } 
+    /* poisionfood */
+    .poisionfood1{
+       
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+    .poisionfood2{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+       
+    .poisionfood3{
+        
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    } 
+    /* poision food you can uncomment this if required */
+    .poisionfood4{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+    .poisionfood5{
+        background:linear-gradient(rgb(85, 255, 0), );
+        border-radius: 2.9vh;
+        border: 1.4vh solid black;
+    }
+    
+}
